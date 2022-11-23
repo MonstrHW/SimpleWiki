@@ -1,8 +1,11 @@
 @php
-$error = $errors->has("sections.$id.header") || $errors->has("sections.$id.body")
+$error = $errors->has("sections.$id.slug")
+|| $errors->has("sections.$id.header")
+|| $errors->has("sections.$id.body")
 @endphp
 
-<div id="section{{ $id }}">
+<div class="flex flex-col" id="section{{ $id }}">
+    <x-input-error for="sections.{{ $id }}.slug" />
     <x-input-error for="sections.{{ $id }}.header" />
     <x-input-error for="sections.{{ $id }}.body" />
 

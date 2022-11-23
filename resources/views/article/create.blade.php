@@ -4,8 +4,9 @@
     </x-slot>
 
     @php
-    $headerOrImageError = $errors->has('header') || $errors->has('image');
-    $sections = old('sections') ?? []
+    $headerError = $errors->has('slug') || $errors->has('header');
+    $headerOrImageError = $headerError || $errors->has('image');
+    $sections = old('sections') ?? [];
     @endphp
 
     <div class="mx-auto my-4 max-w-2xl text-sm text-gray-400">
@@ -14,9 +15,10 @@
         @csrf
 
         <div class="flex gap-2 @if($headerOrImageError) flex-col @endif">
+          <x-input-error for="slug" class="-mb-2" />
           <x-input-error for="header" class="-mb-2" />
           <input
-            class="flex-1 border @error('header') border-red-600 @else border-gray-500 @enderror bg-slate-900 p-3 placeholder-gray-600 focus:placeholder-transparent focus:outline-none"
+            class="flex-1 border @if($headerError) border-red-600 @else border-gray-500 @enderror bg-slate-900 p-3 placeholder-gray-600 focus:placeholder-transparent focus:outline-none"
             type="text" name="header" value="{{ old('header') }}" placeholder="Header..." />
           <x-input-error for="image" class="-mb-2" />
           <input
