@@ -1,7 +1,7 @@
 @php
 $error = $errors->has("sections.$id.slug")
 || $errors->has("sections.$id.header")
-|| $errors->has("sections.$id.body")
+|| $errors->has("sections.$id.body");
 @endphp
 
 <div class="flex flex-col" id="section{{ $id }}">
