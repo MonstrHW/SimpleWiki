@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('article_id')->cascadeOnDelete();
             $table->string('slug');
-            $table->string('header', 80);
-            $table->string('body', 2048);
+            $table->string('header', config('size.section.header'));
+            $table->string('body', config('size.section.body'));
         });
     }
 

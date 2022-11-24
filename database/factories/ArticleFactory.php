@@ -18,12 +18,15 @@ class ArticleFactory extends Factory
      */
     public function definition()
     {
-        $header = fake()->words(3, true);
+        $headerSize = rand(5, config('size.article.header'));
+        $forewordSize = rand(5, config('size.article.foreword'));
+
+        $header = fake()->text($headerSize);
 
         return [
             'slug' => Str::slug($header),
             'header' => $header,
-            'foreword' => fake()->paragraphs(5, true),
+            'foreword' => fake()->text($forewordSize),
         ];
     }
 }

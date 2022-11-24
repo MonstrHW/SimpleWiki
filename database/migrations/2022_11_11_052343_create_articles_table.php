@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
-            $table->string('header', 80);
-            $table->string('foreword', 1024);
+            $table->string('header', config('size.article.header'));
+            $table->string('foreword', config('size.article.foreword'));
             $table->string('image')->nullable();
         });
     }

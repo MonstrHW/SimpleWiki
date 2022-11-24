@@ -59,15 +59,23 @@ class ArticleRequest extends FormRequest
      */
     public function rules()
     {
+        $max = fn ($value) => 'max:' . $value;
+
         return [
             'slug' => 'unique:articles,slug',
-            'header' => 'required|max:80',
-            'foreword' => 'required|max:1024',
+            'header' => ['required', $max(config('size.article.header'))],
+            'foreword' => ['required', $max(config('size.article.foreword'))],
             'image' => 'mimes:jpg,bmp,png',
 
             'sections.*.slug' => 'distinct',
-            'sections.*.header' => 'required_unless:sections.*.body,null|max:80',
-            'sections.*.body' => 'required_unless:sections.*.header,null|max:2048',
+            'sections.*.header' => [
+                'required_unless:sections.*.body,null',
+                $max(config('size.section.header')),
+            ],
+            'sections.*.body' => [
+                'required_unless:sections.*.header,null',
+                $max(config('size.section.body')),
+            ],
         ];
     }
 }

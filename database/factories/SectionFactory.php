@@ -11,19 +11,21 @@ use Illuminate\Support\Str;
  */
 class SectionFactory extends Factory
 {
-    /**
-     * Define the model's default state.
+    /*body Define the model's default state.
      *
      * @return array<string, mixed>
      */
     public function definition()
     {
-        $header = fake()->words(3, true);
+        $headerSize = rand(5, config('size.section.header'));
+        $bodySize = rand(5, config('size.section.body'));
+
+        $header = fake()->text($headerSize);
 
         return [
             'slug' => Str::slug($header),
             'header' => $header,
-            'body' => fake()->paragraphs(10, true),
+            'body' => fake()->text($bodySize),
         ];
     }
 }
