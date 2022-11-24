@@ -12,10 +12,16 @@ class Article extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'slug',
         'header',
         'foreword',
         'image'
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function sections()
     {

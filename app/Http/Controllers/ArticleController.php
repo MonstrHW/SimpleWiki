@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
+use App\Models\Article;
 use App\Services\ArticleService;
 
 class ArticleController extends Controller
@@ -17,5 +18,10 @@ class ArticleController extends Controller
         $articleService->store($request);
 
         return redirect('/');
+    }
+
+    public function show(Article $article)
+    {
+        return view('article.show', compact('article'));
     }
 }

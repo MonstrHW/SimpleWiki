@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::get('/create', [ArticleController::class, 'create'])->name('create');
 Route::post('/', [ArticleController::class, 'store'])->name('store');
+
+Route::get('/{article}', [ArticleController::class, 'show'])->name('show');

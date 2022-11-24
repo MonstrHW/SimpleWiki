@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+use Illuminate\Support\Str;
+
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Article>
  */
@@ -16,8 +18,11 @@ class ArticleFactory extends Factory
      */
     public function definition()
     {
+        $header = fake()->words(3, true);
+
         return [
-            'header' => fake()->words(3, true),
+            'slug' => Str::slug($header),
+            'header' => $header,
             'foreword' => fake()->paragraphs(5, true),
         ];
     }

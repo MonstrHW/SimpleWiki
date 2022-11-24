@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
             $table->foreignId('article_id')->cascadeOnDelete();
+            $table->string('slug');
             $table->string('header', 80);
             $table->string('body', 2048);
         });

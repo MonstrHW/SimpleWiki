@@ -7,7 +7,9 @@
 
 	@vite('resources/css/app.css')
 
+	@isset($scripts)
 	{{ $scripts }}
+	@endisset
 </head>
 
 <body class="bg-slate-800">
