@@ -9,20 +9,17 @@
 	<!-- Main page -->
 	<div class="mx-10 mb-4 min-h-screen border border-gray-500 bg-slate-900 p-6 text-sm text-gray-400">
 		<!-- Header -->
-		<h1 class="mb-4 border-b border-gray-500 text-2xl">{{ $article->header }}</h1>
+		<h1 class="mb-4 border-b border-gray-500 text-4xl">{{ $article->header }}</h1>
 
 		<!-- Image column-->
 		@isset($article->image)
-		<div class="float-right ml-4 mb-4 w-full max-w-xs border bg-gray-900">
-			<h2 class="bg-slate-800 text-center text-lg">{{ $article->header }}</h2>
-			<img src="{{ asset('storage/' . $article->image) }}" class="m-auto" />
+		<div class="float-right ml-4 mb-4 max-w-lg border bg-gray-900">
+			<img src="{{ asset('storage/' . $article->image) }}" />
 		</div>
 		@endisset
 
 		<!-- Foreword -->
-		<p class="mb-2">
-			{{ $article->foreword }}
-		</p>
+		<p class="mb-2 whitespace-pre-line">{{ $article->foreword }}</p>
 
 		<!-- Contents menu -->
 		@if ($article->sections->isNotEmpty())
@@ -43,12 +40,12 @@
 
 		<!-- Sections -->
 		@foreach ($article->sections as $section)
-		<div class="mb-4" id="{{ $section->slug }}">
+		<div class="mb-4 last:mb-0" id="{{ $section->slug }}">
 			<h1 class="mb-2 overflow-hidden border-b border-gray-500 text-xl">
 				{{ $section->header }}
 			</h1>
 
-			{{ $section->body }}
+			<p class="whitespace-pre-line">{{ $section->body }}</p>
 		</div>
 		@endforeach
 	</div>
