@@ -33,21 +33,24 @@ class CreateArticleTest extends TestCase
 
     public function test_create()
     {
-        $article = [
-            'header' => 'header',
-            'foreword' => 'foreword',
+        $article = Article::factory()->make();
+        $section = Section::factory()->make();
+
+        $data = [
+            'header' => $article->header,
+            'foreword' => $article->foreword,
             'sections' => [
                 [
-                    'header' => 'header',
-                    'body' => 'body',
+                    'header' => $section->header,
+                    'body' => $section->body,
                 ],
             ],
         ];
 
-        $this->post(route('store'), $article);
+        $this->post(route('store'), $data);
 
-        $this->assertDatabaseHas('articles', ['header' => 'header']);
-        $this->assertDatabaseHas('sections', ['header' => 'header']);
+        $this->assertDatabaseHas('articles', ['slug' => $article->slug]);
+        $this->assertDatabaseHas('sections', ['slug' => $section->slug]);
     }
 
     public function test_fail_to_create_articles_with_same_slugs()
