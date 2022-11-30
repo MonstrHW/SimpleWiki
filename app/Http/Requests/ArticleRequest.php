@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ArticleRequest extends FormRequest
 {
@@ -61,7 +62,7 @@ class ArticleRequest extends FormRequest
     {
         $max = fn ($value) => 'max:' . $value;
 
-        return [
+        $rules = [
             'slug' => 'unique:articles,slug',
             'header' => ['required', $max(config('size.article.header'))],
             'foreword' => ['required', $max(config('size.article.foreword'))],
@@ -77,5 +78,11 @@ class ArticleRequest extends FormRequest
                 $max(config('size.section.body')),
             ],
         ];
+
+        if ($this->method() == 'PUT') {
+            $rules['slug'] = Rule::unique('articles')->ignore($this->article);
+        }
+
+        return $rules;
     }
 }

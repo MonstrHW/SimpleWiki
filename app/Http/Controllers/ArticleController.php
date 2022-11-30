@@ -10,7 +10,7 @@ class ArticleController extends Controller
 {
     public function create()
     {
-        return view('article.create');
+        return $this->edit(new Article());
     }
 
     public function store(ArticleRequest $request, ArticleService $articleService)
@@ -23,5 +23,17 @@ class ArticleController extends Controller
     public function show(Article $article)
     {
         return view('article.show', compact('article'));
+    }
+
+    public function edit(Article $article)
+    {
+        return view('article.create-edit', compact('article'));
+    }
+
+    public function update(ArticleRequest $request, Article $article, ArticleService $articleService)
+    {
+        $articleService->update($request, $article);
+
+        return redirect(route('show', $article));
     }
 }
