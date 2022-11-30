@@ -1,7 +1,7 @@
 <x-layout>
 	<!-- Options menu and search-->
 	<div class="mx-10 mb-2 mt-4 flex flex-wrap gap-1 text-gray-400">
-		<a href="" class="border border-gray-500 bg-slate-900 p-2">Edit</a>
+		<a href="{{ route('edit', $article) }}" class="border border-gray-500 bg-slate-900 p-2">Edit</a>
 		<input type="text" placeholder="Search..."
 			class="flex-1 border border-gray-500 bg-slate-900 px-2 focus:bg-slate-700 focus:outline-none" />
 	</div>
