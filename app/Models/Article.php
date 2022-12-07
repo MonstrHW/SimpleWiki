@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Article extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     public $timestamps = false;
 
@@ -17,6 +18,13 @@ class Article extends Model
         'foreword',
         'image'
     ];
+
+    public function toSearchableArray()
+    {
+        return [
+            'header' => $this->header,
+        ];
+    }
 
     public function getRouteKeyName()
     {

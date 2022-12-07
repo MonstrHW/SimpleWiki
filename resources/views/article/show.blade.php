@@ -1,9 +1,22 @@
 <x-layout>
+	<x-slot:scripts>
+		@vite('resources/js/app.js')
+		@vite('resources/js/search.js')
+	</x-slot>
+
 	<!-- Options menu and search-->
-	<div class="mx-10 mb-2 mt-4 flex flex-wrap gap-1 text-gray-400">
+	<div class="mx-10 mb-2 mt-4 flex gap-1 text-gray-400">
 		<a href="{{ route('edit', $article) }}" class="border border-gray-500 bg-slate-900 p-2">Edit</a>
-		<input type="text" placeholder="Search..."
-			class="flex-1 border border-gray-500 bg-slate-900 px-2 focus:bg-slate-700 focus:outline-none" />
+
+		<div class="relative w-full">
+			<input type="text" placeholder="Search..."
+				class="peer w-full h-full border border-gray-500 bg-slate-900 px-2 focus:outline-none" id="search"
+				autocomplete="off" />
+
+			<div class="peer-focus:flex hover:flex empty:border-none absolute bg-slate-900 border-gray-500 border-x border-b flex-col hidden"
+				id="search_result"></div>
+		</div>
+
 	</div>
 
 	<!-- Main page -->
