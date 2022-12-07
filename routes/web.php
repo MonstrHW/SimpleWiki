@@ -24,3 +24,5 @@ Route::get('/{article}', [ArticleController::class, 'show'])->name('show');
 
 Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('edit');
 Route::put('/{article}', [ArticleController::class, 'update'])->name('update');
+
+Route::get('/search/{search}', [ArticleController::class, 'search'])->name('search');

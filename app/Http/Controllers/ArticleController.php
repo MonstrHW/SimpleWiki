@@ -36,4 +36,12 @@ class ArticleController extends Controller
 
         return redirect(route('show', $article));
     }
+
+    public function search($search)
+    {
+        return Article::search($search)
+            ->get()
+            ->makeHidden(['id', 'foreword', 'image'])
+            ->take(10);
+    }
 }
