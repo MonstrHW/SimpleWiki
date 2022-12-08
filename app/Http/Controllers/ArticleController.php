@@ -37,6 +37,13 @@ class ArticleController extends Controller
         return redirect(route('show', $article));
     }
 
+    public function destroy(Article $article, ArticleService $articleService)
+    {
+        $articleService->destroy($article);
+
+        return redirect('/');
+    }
+
     public function search($search)
     {
         return Article::search($search)

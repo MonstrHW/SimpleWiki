@@ -55,4 +55,10 @@ class ArticleService
 		$article->sections()->delete();
 		$article->saveSections($data['sections']);
 	}
+
+	public function destroy(Article $article)
+	{
+		$article->delete();
+		$this->deleteImage($article->image);
+	}
 }
