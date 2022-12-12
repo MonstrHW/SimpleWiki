@@ -28,5 +28,7 @@
 			<x-create-save-delete-buttons :article="$article" />
 
 		</x-create-edit-form>
+
+		<x-delete-form :article="$article" />
 	</div>
 </x-layout>

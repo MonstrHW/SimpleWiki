@@ -10,12 +10,8 @@
 	</button>
 
 	@if($article->exists)
-	<form method="post" action="{{ route('destroy', $article) }}">
-		@csrf
-		@method('delete')
-		<button
-			class="text-center border border-gray-500 text-red-600 p-2 hover:bg-red-600 hover:text-gray-400 hover:border-red-600"
-			type="submit" onclick="return confirm('Are you sure?')">Delete</button>
-	</form>
+	<button
+		class="text-center border border-gray-500 text-red-600 p-2 hover:bg-red-600 hover:text-gray-400 hover:border-red-600"
+		type="submit" onclick="return confirm('Are you sure?')" form="delete_form">Delete</button>
 	@endif
 </div>
