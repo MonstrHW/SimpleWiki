@@ -8,6 +8,13 @@ use App\Services\ArticleService;
 
 class ArticleController extends Controller
 {
+    public function index()
+    {
+        $randomArticles = Article::inRandomOrder()->limit(8)->get();
+
+        return view('article.index', compact('randomArticles'));
+    }
+
     public function create()
     {
         return $this->edit(new Article());
@@ -41,7 +48,7 @@ class ArticleController extends Controller
     {
         $articleService->destroy($article);
 
-        return redirect('/');
+        return redirect(route('index'));
     }
 
     public function search($search)

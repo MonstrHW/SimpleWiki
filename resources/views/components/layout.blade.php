@@ -13,6 +13,10 @@
 </head>
 
 <body class="bg-slate-800">
+	<header class="text-center my-4 text-gray-300 text-3xl">
+		<a href="{{ route('index') }}">Simple Wiki</a>
+	</header>
+
 	{{ $slot }}
 </body>
 
