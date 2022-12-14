@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-});
+Route::get('/', [ArticleController::class, 'index'])->name('index');
 
 Route::get('/create', [ArticleController::class, 'create'])->name('create');
 Route::post('/', [ArticleController::class, 'store'])->name('store');
