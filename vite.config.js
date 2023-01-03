@@ -8,6 +8,7 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/js/app.js",
                 "resources/js/search.js",
+                "resources/js/text_customize.js",
             ],
             refresh: true,
         }),

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\ReplaceCustomTags;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,5 +18,9 @@ class Section extends Model
         'slug',
         'header',
         'body',
+    ];
+
+    protected $casts = [
+        'body' => ReplaceCustomTags::class,
     ];
 }

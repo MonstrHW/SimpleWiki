@@ -2,7 +2,7 @@ function clearSection(section) {
     section.querySelector("input").value = "";
     section.querySelector("textarea").value = "";
 
-    section.querySelectorAll("span").forEach((e) => e.remove());
+    section.querySelectorAll("span.error").forEach((e) => e.remove());
 
     section
         .querySelector("div.border")
