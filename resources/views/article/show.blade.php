@@ -3,16 +3,20 @@
 		<a href="{{ route('edit', $article) }}" class="border border-gray-500 bg-slate-900 p-2">Edit</a>
 	</x-slot>
 
+	{{-- Header --}}
 	<h1 class="mb-4 border-b border-gray-500 text-4xl">{{ $article->header }}</h1>
 
+	{{-- Image --}}
 	@isset($article->image)
 	<div class="float-right ml-4 mb-4 max-w-lg border bg-gray-900">
 		<img src="{{ asset('storage/' . $article->image) }}" />
 	</div>
 	@endisset
 
-	<p class="mb-2 whitespace-pre-line">{{ $article->foreword }}</p>
+	{{-- Foreword --}}
+	<p class="mb-2 whitespace-pre-line">{!! $article->foreword !!}</p>
 
+	{{-- Sections menu --}}
 	@if ($article->sections->isNotEmpty())
 	<div class="mb-4 inline-block border bg-slate-800 p-2">
 		<details open>
@@ -29,13 +33,14 @@
 	</div>
 	@endif
 
+	{{-- Sections --}}
 	@foreach ($article->sections as $section)
 	<div class="mb-4 last:mb-0" id="{{ $section->slug }}">
 		<h1 class="mb-2 overflow-hidden border-b border-gray-500 text-xl">
 			{{ $section->header }}
 		</h1>
 
-		<p class="whitespace-pre-line">{{ $section->body }}</p>
+		<p class="whitespace-pre-line">{!! $section->body !!}</p>
 	</div>
 	@endforeach
 </x-show-layout>

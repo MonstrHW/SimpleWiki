@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\ReplaceCustomTags;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
@@ -17,6 +18,10 @@ class Article extends Model
         'header',
         'foreword',
         'image'
+    ];
+
+    protected $casts = [
+        'foreword' => ReplaceCustomTags::class,
     ];
 
     public function toSearchableArray()

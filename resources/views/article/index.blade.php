@@ -17,7 +17,7 @@
 			<img class="mx-auto" src="{{ asset('storage/' . $article->image) }}" />
 			@endisset
 
-			<p class="whitespace-pre-line">{{ $article->foreword }}</p>
+			<p class="whitespace-pre-line">{!! $article->foreword !!}</p>
 		</div>
 
 		@endforeach
