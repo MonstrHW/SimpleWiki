@@ -1,6 +1,6 @@
 @props(['article'])
 
-<div class="flex gap-2">
+<div class="flex gap-1">
 	<button type="submit" class="flex-1 h-10 border border-gray-500 hover:bg-gray-50 hover:bg-opacity-10">
 		@if($article->exists)
 		Save
