@@ -24,9 +24,11 @@
 
 			<ol class="mt-2 list-inside list-decimal">
 				@foreach ($article->sections as $section)
-				<a class="hover:underline" href="#{{ $section->slug }}">
-					<li>{{ $section->header }}</li>
-				</a>
+				<li>
+					<a class="hover:underline" href="#{{ $section->slug }}">
+						{{ $section->header }}
+					</a>
+				</li>
 				@endforeach
 			</ol>
 		</details>
