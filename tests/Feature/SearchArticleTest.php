@@ -18,7 +18,7 @@ class SearchArticleTest extends TestCase
         $response = $this->getJson(route('search', $article->header));
 
         $response->assertExactJson([[
-            'slug' => $article->slug,
+            'url' => route('show', $article),
             'header' => $article->header,
         ]]);
     }
