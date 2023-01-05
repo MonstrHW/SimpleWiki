@@ -1,4 +1,8 @@
 <x-show-layout>
+	<x-slot:title>
+		{{ $article->header }}
+	</x-slot>
+	
 	<x-slot:buttons>
 		<a href="{{ route('edit', $article) }}" class="border border-gray-500 bg-slate-900 p-2">Edit</a>
 	</x-slot>

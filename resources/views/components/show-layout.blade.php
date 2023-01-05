@@ -1,4 +1,10 @@
 <x-layout>
+	@isset($title)
+	<x-slot:title>
+		{{ $title }}
+	</x-slot>
+	@endisset
+
 	<x-slot:scripts>
 		@vite('resources/js/app.js')
 		@vite('resources/js/search.js')
