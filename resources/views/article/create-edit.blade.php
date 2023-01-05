@@ -1,4 +1,8 @@
 <x-layout>
+	<x-slot:title>
+		{{ $article->exists ? 'Edit: ' . $article->header : 'Create Article' }}
+	</x-slot>
+
 	<x-slot:scripts>
 		<script src="{{ asset('scripts/section_actions.js') }}"></script>
 		@vite('resources/js/text_customize.js')
