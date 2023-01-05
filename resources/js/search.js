@@ -35,12 +35,12 @@ function doSearch(s) {
 function showSearchResult(result) {
     clearSearchResult();
 
-    let formatLink = (slug, header) =>
-        `<a href="/${slug}" class="hover:bg-slate-800 px-4 py-1">${header}</a>`;
+    let formatLink = (url, header) =>
+        `<a href="${url}" class="hover:bg-slate-800 px-4 py-1">${header}</a>`;
 
     let searchResult = document.getElementById("search_result");
 
     for (const r of result) {
-        searchResult.innerHTML += formatLink(r.slug, r.header);
+        searchResult.innerHTML += formatLink(r.url, r.header);
     }
 }

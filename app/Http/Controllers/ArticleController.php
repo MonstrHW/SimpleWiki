@@ -53,9 +53,16 @@ class ArticleController extends Controller
 
     public function search($search)
     {
-        return Article::search($search)
+        $result = Article::search($search)
             ->get()
-            ->makeHidden(['id', 'foreword', 'image'])
-            ->take(10);
+            ->take(10)
+            ->map(function ($article) {
+                return [
+                    'url' => route('show', $article),
+                    'header' => $article->header,
+                ];
+            });
+
+        return $result;
     }
 }
