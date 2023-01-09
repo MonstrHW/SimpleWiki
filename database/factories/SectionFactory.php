@@ -21,6 +21,7 @@ class SectionFactory extends Factory
         $bodySize = rand(5, config('size.section.body'));
 
         $header = fake()->text($headerSize);
+        $header = rtrim($header, '.');
 
         return [
             'slug' => Str::slug($header),
