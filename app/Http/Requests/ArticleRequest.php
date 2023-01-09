@@ -46,10 +46,12 @@ class ArticleRequest extends FormRequest
     {
         return [
             'slug.unique' => 'The :attribute of header has already been taken.',
+            'header.regex' => 'The :attribute must only contain letters and spaces.',
 
             'sections.*.slug.distinct' => 'The :attribute of header has a duplicate value.',
             'sections.*.header.required_unless' => 'The :attribute field is required if :other is non-empty.',
             'sections.*.body.required_unless' => 'The :attribute field is required if :other is non-empty.',
+            'sections.*.header.regex' => 'The :attribute must only contain letters and spaces.',
         ];
     }
 
@@ -61,10 +63,11 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         $max = fn ($value) => 'max:' . $value;
+        $alpha_space = 'regex:/^[\pL\s]*$/';
 
         $rules = [
             'slug' => 'unique:articles,slug',
-            'header' => ['required', $max(config('size.article.header'))],
+            'header' => ['required', $max(config('size.article.header')), $alpha_space],
             'foreword' => ['required', $max(config('size.article.foreword'))],
             'image' => 'mimes:jpg,bmp,png',
 
@@ -72,6 +75,8 @@ class ArticleRequest extends FormRequest
             'sections.*.header' => [
                 'required_unless:sections.*.body,null',
                 $max(config('size.section.header')),
+                $alpha_space,
+                'nullable',
             ],
             'sections.*.body' => [
                 'required_unless:sections.*.header,null',
