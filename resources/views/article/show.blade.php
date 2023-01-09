@@ -18,7 +18,7 @@
 	@endisset
 
 	{{-- Foreword --}}
-	<p class="mb-2 whitespace-pre-line">{!! $article->foreword !!}</p>
+	<p class="mb-2 whitespace-pre-line break-words">{!! $article->foreword !!}</p>
 
 	{{-- Sections menu --}}
 	@if ($article->sections->isNotEmpty())
@@ -46,7 +46,7 @@
 			{{ $section->header }}
 		</h1>
 
-		<p class="whitespace-pre-line">{!! $section->body !!}</p>
+		<p class="whitespace-pre-line break-words">{!! $section->body !!}</p>
 	</div>
 	@endforeach
 </x-show-layout>
