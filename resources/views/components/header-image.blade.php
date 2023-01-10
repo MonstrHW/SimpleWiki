@@ -5,7 +5,7 @@ $headerError = $errors->has('slug') || $errors->has('header');
 $headerOrImageError = $headerError || $errors->has('image');
 @endphp
 
-<div class="flex gap-1 @if($headerOrImageError) flex-col @endif">
+<div class="flex gap-x-1 gap-y-2 @if($headerOrImageError) flex-col @endif">
 	<x-input-error for="slug" class="-mb-2" />
 	<x-input-error for="header" class="-mb-2" />
 	<input
