@@ -14,15 +14,17 @@
 	$getBody = fn($section) => is_array($section) ? $section['body'] : $section->getRawOriginal('body');
 	@endphp
 
-	<div class="mx-auto my-4 max-w-2xl text-sm text-gray-400">
+	<div class="mx-auto my-4 px-2 max-w-2xl text-sm text-gray-400">
 		<x-create-edit-form :article="$article">
 
 			<x-header-image :article="$article" />
 
 			{{-- Foreword --}}
 			<x-input-error for="foreword" class="-mb-2" />
-			<div class="flex flex-col border @error('foreword') border-red-600 @else border-gray-500 @enderror">
-				<x-text-customize-menu />
+			<div class="flex flex-col border @error('foreword') border-red-600 @else border-gray-700 @enderror">
+				<x-customize-menu>
+					<x-customize-menu.text-buttons />
+				</x-customize-menu>
 
 				<textarea
 					class="min-h-[84px] bg-slate-900 p-3 placeholder-gray-600 focus:placeholder-transparent focus:outline-none"

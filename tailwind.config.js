@@ -5,6 +5,9 @@ module.exports = {
         "./resources/**/*.js",
         "./app/Libraries/CustomTagReplacer/BBCodeTags/*.php",
     ],
+    future: {
+        hoverOnlyWhenSupported: true,
+    },
     theme: {
         extend: {},
     },
