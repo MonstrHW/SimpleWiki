@@ -22,7 +22,7 @@ class ArticleFactory extends Factory
         $forewordSize = rand(5, config('size.article.foreword'));
 
         $header = fake()->text($headerSize);
-        $header = rtrim($header, '.');
+        $header = str_replace('.', '', $header);
 
         return [
             'slug' => Str::slug($header),
