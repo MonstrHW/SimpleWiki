@@ -4,7 +4,7 @@
 	</x-slot>
 
 	<x-slot:scripts>
-		<script src="{{ asset('scripts/section_actions.js') }}"></script>
+		@vite('resources/js/section_actions.js')
 		@vite('resources/js/text_customize.js')
 	</x-slot>
 

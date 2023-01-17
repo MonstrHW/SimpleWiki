@@ -1,3 +1,5 @@
+updateSectionIndexes();
+
 function clearSection(section) {
     section.querySelector("input").value = "";
     section.querySelector("textarea").value = "";
