@@ -1,3 +1,5 @@
+import { onAddSection } from "./section_actions";
+
 const mapClassTagType = {
     ".text-customize-bold": "bold",
     ".text-customize-italic": "italic",
@@ -9,6 +11,14 @@ for (const [classType, tagType] of Object.entries(mapClassTagType)) {
         e.addEventListener("click", addCustomTag.bind(this, tagType));
     });
 }
+
+onAddSection((e) => {
+    for (const [classType, tagType] of Object.entries(mapClassTagType)) {
+        e.detail.section
+            .querySelector(classType)
+            .addEventListener("click", addCustomTag.bind(this, tagType));
+    }
+});
 
 function surroundByTag(string, tagType) {
     switch (tagType) {

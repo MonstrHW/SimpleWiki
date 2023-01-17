@@ -62,12 +62,26 @@ function deleteSection(from) {
     updateSectionIndexes();
 }
 
+export function onAddSection(callback) {
+    document.addEventListener("onAddSection", callback);
+}
+
+function emmitEvent(name, data) {
+    document.dispatchEvent(
+        new CustomEvent(name, {
+            detail: data,
+        })
+    );
+}
+
 function addSection(from) {
     const section = getElementOfSection(from);
 
     const newSection = section.cloneNode(true);
     clearSection(newSection);
     section.after(newSection);
+
+    emmitEvent("onAddSection", { section: newSection });
 
     updateSectionIndexes();
 }
