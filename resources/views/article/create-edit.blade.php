@@ -14,7 +14,7 @@
 	$getBody = fn($section) => is_array($section) ? $section['body'] : $section->getRawOriginal('body');
 	@endphp
 
-	<div class="mx-auto my-4 px-2 max-w-2xl text-sm text-gray-400">
+	<div class="mx-auto px-2 max-w-2xl text-sm text-gray-400">
 		<x-create-edit-form :article="$article">
 
 			<x-header-image :article="$article" />
