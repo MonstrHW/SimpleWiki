@@ -20,12 +20,16 @@
 	@endisset
 </head>
 
-<body class="bg-slate-800">
+<body class="flex flex-col min-h-screen bg-slate-800">
 	<header class="text-center my-4 text-gray-300 text-3xl">
 		<a href="{{ route('index') }}">Simple Wiki</a>
 	</header>
 
-	{{ $slot }}
+	<div {{ $attributes->merge(['class' => 'flex-1']) }}>
+		{{ $slot }}
+	</div>
+
+	<footer class="h-2 sm:h-4"></footer>
 </body>
 
 </html>
