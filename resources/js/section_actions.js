@@ -52,11 +52,14 @@ function moveSection(from, target, before) {
 }
 
 function deleteSection(from) {
-    if (getSectionsCount() <= 1) {
+    const section = getElementOfSection(from);
+
+    if (getSectionsCount() == 1) {
+        clearSection(section);
+
         return;
     }
 
-    const section = getElementOfSection(from);
     section.remove();
 
     updateSectionIndexes();
