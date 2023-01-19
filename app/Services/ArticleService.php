@@ -34,6 +34,8 @@ class ArticleService
 
 		$article = Article::create($data);
 		$article->saveSections($data['sections']);
+
+		return $article;
 	}
 
 	public function update(ArticleRequest $request, Article $article)

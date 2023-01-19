@@ -22,9 +22,9 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request, ArticleService $articleService)
     {
-        $articleService->store($request);
+        $article = $articleService->store($request);
 
-        return redirect('/');
+        return redirect(route('show', $article));
     }
 
     public function show(Article $article)
