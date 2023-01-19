@@ -8,7 +8,7 @@ function clearSection(section) {
 
     section
         .querySelector("div.border")
-        .classList.replace("border-red-600", "border-gray-500");
+        .classList.replace("border-red-600", "border-gray-700");
 }
 
 function getElementOfSection(sectionID) {
