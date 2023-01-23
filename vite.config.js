@@ -10,6 +10,7 @@ export default defineConfig({
                 "resources/js/search.js",
                 "resources/js/section_actions.js",
                 "resources/js/text_customize.js",
+                "resources/js/autoresize_textarea.js",
             ],
             refresh: true,
         }),
