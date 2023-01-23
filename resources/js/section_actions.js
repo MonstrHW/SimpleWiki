@@ -2,7 +2,10 @@ updateSectionIndexes();
 
 function clearSection(section) {
     section.querySelector("input").value = "";
-    section.querySelector("textarea").value = "";
+
+    let textArea = section.querySelector("textarea");
+    textArea.value = "";
+    textArea.style.height = "auto";
 
     section.querySelectorAll("span.error").forEach((e) => e.remove());
 
