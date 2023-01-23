@@ -1,3 +1,4 @@
+import { emmitEvent, registerEventListener } from "./helpers";
 import { onAddSection } from "./section_actions";
 
 const mapClassTagType = {
@@ -36,6 +37,10 @@ function surroundByTag(string, tagType) {
     return string;
 }
 
+export function onAddCustomTag(callback) {
+    registerEventListener("onAddCustomTag", callback);
+}
+
 function addCustomTag(tagType) {
     const selection = document.getSelection();
 
@@ -56,4 +61,6 @@ function addCustomTag(tagType) {
         fullText.substr(0, selectionStart) +
         formattedString +
         fullText.substr(selectionEnd, fullText.length);
+
+    emmitEvent("onAddCustomTag", { element: elementWithSelection });
 }

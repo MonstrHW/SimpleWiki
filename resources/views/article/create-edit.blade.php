@@ -6,6 +6,7 @@
 	<x-slot:scripts>
 		@vite('resources/js/section_actions.js')
 		@vite('resources/js/text_customize.js')
+		@vite('resources/js/autoresize_textarea.js')
 	</x-slot>
 
 	@php

@@ -1,3 +1,5 @@
+import { emmitEvent, registerEventListener } from "./helpers";
+
 updateSectionIndexes();
 
 function clearSection(section) {
@@ -69,15 +71,7 @@ function deleteSection(from) {
 }
 
 export function onAddSection(callback) {
-    document.addEventListener("onAddSection", callback);
-}
-
-function emmitEvent(name, data) {
-    document.dispatchEvent(
-        new CustomEvent(name, {
-            detail: data,
-        })
-    );
+    registerEventListener("onAddSection", callback);
 }
 
 function addSection(from) {
