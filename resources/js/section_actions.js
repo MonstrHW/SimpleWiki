@@ -21,7 +21,7 @@ function getElementOfSection(sectionID) {
 }
 
 function updateSectionIndexes() {
-    let sections = document.querySelectorAll("#sections>[id^='section']");
+    let sections = getSections();
 
     for (let i = 0; i < sections.length; i++) {
         let section = sections[i];
@@ -38,8 +38,12 @@ function updateSectionIndexes() {
     }
 }
 
+function getSections() {
+    return document.querySelectorAll("#sections>[id^='section']");
+}
+
 function getSectionsCount() {
-    return document.querySelectorAll("#sections>[id^='section']").length;
+    return getSections().length;
 }
 
 function moveSection(from, target, before) {
@@ -81,9 +85,9 @@ function addSection(from) {
     clearSection(newSection);
     section.after(newSection);
 
-    emmitEvent("onAddSection", { section: newSection });
-
     updateSectionIndexes();
+
+    emmitEvent("onAddSection", { section: newSection });
 }
 
 function moveUpSection(from) {
