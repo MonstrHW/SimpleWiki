@@ -20,7 +20,7 @@
 				class="peer w-full h-full border border-gray-700 bg-slate-900 p-3 focus:outline-none placeholder-gray-600 focus:placeholder-transparent"
 				id="search" autocomplete="off" />
 
-			<div class="peer-focus:flex hover:flex empty:border-none absolute bg-slate-900 border-gray-700 border-x border-b flex-col hidden"
+			<div class="peer-focus:flex [&:hover]:flex empty:border-none absolute bg-slate-900 border-gray-700 border-x border-b flex-col hidden"
 				id="search_result"></div>
 		</div>
 	</div>
