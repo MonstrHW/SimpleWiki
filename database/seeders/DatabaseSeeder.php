@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Article::factory(3)
+            ->withFakeImage()
             ->hasSections(3)
             ->create();
     }
