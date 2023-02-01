@@ -22,7 +22,7 @@
 
 	{{-- Sections menu --}}
 	@if ($article->sections->isNotEmpty())
-	<div class="w-fit mb-4 border border-gray-700 bg-slate-800 p-2">
+	<div class="table mb-4 border border-gray-700 bg-slate-800 p-2">
 		<details open>
 			<summary class="text-center text-gray-300">Contents</summary>
 
