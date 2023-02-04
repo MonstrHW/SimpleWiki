@@ -26,6 +26,11 @@
     </details>
 
 -   <details>
+      <summary>Index with random articles</summary>
+        <img src="./feature_gifs/index.gif"></img>
+    </details>
+
+-   <details>
       <summary>Search by article header</summary>
         <img src="./feature_gifs/search.gif"></img>
     </details>
@@ -65,7 +70,6 @@ sudo ./vendor/bin/sail stop
 # Start
 
 ```
-
 sudo ./vendor/bin/sail up -d
 sudo ./vendor/bin/sail npm run dev
 
@@ -78,7 +82,6 @@ http://127.0.0.1/
 Seed database with fake articles and sections
 
 ```
-
 sudo ./vendor/bin/sail artisan db:seed
 
 ```
@@ -86,7 +89,6 @@ sudo ./vendor/bin/sail artisan db:seed
 Run tests
 
 ```
-
 sudo ./vendor/bin/sail artisan test
 
 ```
