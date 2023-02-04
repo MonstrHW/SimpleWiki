@@ -72,7 +72,6 @@ sudo ./vendor/bin/sail stop
 ```
 sudo ./vendor/bin/sail up -d
 sudo ./vendor/bin/sail npm run dev
-
 ```
 
 http://127.0.0.1/
@@ -83,12 +82,10 @@ Seed database with fake articles and sections
 
 ```
 sudo ./vendor/bin/sail artisan db:seed
-
 ```
 
 Run tests
 
 ```
 sudo ./vendor/bin/sail artisan test
-
 ```
